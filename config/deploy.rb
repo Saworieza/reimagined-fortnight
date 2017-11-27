@@ -2,7 +2,7 @@
 lock "~> 3.10.0"
 
 set :application, "reimagined-fortnight"
-set :repo_url, "git@github.com:iamcaleberic/reimagined-fortnight.git"
+set :repo_url, "git@github.com:Saworieza/reimagined-fortnight.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
