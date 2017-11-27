@@ -7,6 +7,11 @@ server "18.216.21.154", user: "ubuntu", roles: %w{app db web}, my_property: :my_
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
+set :ssh_options, {
+  keys: %w(~/.ssh/production.pem),
+  forward_agent: false
+ #  auth_methods: %w(password)
+}
 
 
 # role-based syntax
