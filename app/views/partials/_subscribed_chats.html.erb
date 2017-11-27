@@ -1,0 +1,34 @@
+<% current_user.chatrooms.public_channels.each do |chatroom| %>
+<li>
+	<div class="notification-event">
+		<a class="h6 notification-friend" href="">
+			<%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id}, class: "h6 notification-friend" %>
+		</a>
+	</div>
+	<div class="pull-right">
+	<%# if chatroom.user == current_user %>
+	 <%= link_to 'Delete', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <!-- <span class="fa fa-trash-o"></span> -->
+    <%# end %>
+    </div>
+	<!-- <div class="more fa fa-ellipsis-h"><%#= link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' } %></div> -->
+</li>
+<% end %>
+<!-- <li>
+	<div class="notification-event">
+		<a class="h6 notification-friend" href="">ChatName</a>
+	</div>
+	<div class="more fa fa-ellipsis-h"></div>
+</li>
+<li>
+	<div class="notification-event">
+		<a class="h6 notification-friend" href="">ChatName</a>
+	</div>
+	<div class="more fa fa-ellipsis-h"></div>
+</li>
+<li>
+	<div class="notification-event">
+		<a class="h6 notification-friend" href="">ChatName</a>
+	</div>
+	<div class="more fa fa-ellipsis-h"></div>
+</li> -->

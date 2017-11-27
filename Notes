@@ -1,0 +1,85 @@
+Done
+FUNCTIONALITY
+	404 redirect
+	Tweets
+		create tweets
+		add users to tweets
+		add autolink
+		add images to tweets
+		add links to users in tweets na kadhalika
+		create activity feed
+		create user feed
+		display new tweet on feed
+		style upload image button on new_tweet
+		like comments and on showing who likes it choose from friends. maximum of two
+		format user1, user 2 and x others like this. Changed my mind. Theyre payiing too lil for this feature
+	Comments
+		create comments
+		Ajaxify comments
+		create activity feed
+		add images to comments
+		add image button to comment
+	Hashtags
+		sidebar
+		show tag
+	Users
+		sign in using username or email
+		show user profile pages
+		add pretty urlsess ns to display username(used custom)
+		users index
+		suggest users
+		show people i follow n reverse os same
+		added json to users for future search purposes
+		follow and unfollow users
+		edit user profile
+		add avatar to users
+		add cover image to user
+	Registrations
+		sign up standard
+	Search
+		search for users
+
+STYLING
+	Tweets
+		Index
+		Show
+	Users
+	Comments
+	Hashtags
+	Landing
+	login page design - drivetribe
+
+
+TO DO LIST
+Chatroom .. creator to delete
+chatroom show :back button
+
+
+Search is working weirdly
+complete the notifications count
+add at who js for mentions in posts and comments
+continous pagination for posts and notifications
+
+
+social media sign in
+
+
+
+
+add notification for  likes
+add notification button
+add admin panel
+
+
+chmod 400 production.pem
+sudo ssh -i "production.pem" ubuntu@ec2-18-216-21-154.us-east-2.compute.amazonaws.com
+
+ssh -i "production.pem" ubuntu@ec2-18-216-21-154.us-east-2.compute.amazonaws.com
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5oFM2wKIiNjXaDXB8AKEBc2gds+D8CmsDPTNNbJf5px3p+UbYSAAJ2XDMtuFR2+nI3fV19nfVi7W1fX8fVicBatU9kcWgnyxSIZVp7VAjutbOGadAULt1FNL80ixJXk64s8Daa6otKenotcYyO2Gvcc2J8KRkdfnxNuSt791p/mfsD6FdtC+xNaVXmQ5HG/92IHx1mvaZbBoDTW5QnO9cP00cl1lNlsPRCCeSlos9dduoRZ7uJwv6U+A/K7cIG6nQU6TuaDrFTYX3xFpyxNIRu5Nk0+dknMytb8VDJ5CXd4SclzY0uRRs2waoA5szY5CVTAiOzQC/2EBHRdISXbLt deploy@ip-172-31-20-89
+
+
+
+RESEARCH 
+Do ODOO
+hello world ++

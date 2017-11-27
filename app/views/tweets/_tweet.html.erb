@@ -1,0 +1,133 @@
+<div class="newsfeed-items-grid">
+  <div class="ui-block">
+    <article class="hentry post video">
+      <div class="post__author author vcard inline-items">
+        <%= image_tag tweet.user.avatar(:medium) %>
+
+        <div class="author-date">
+          <%= link_to tweet.user.name, user_path(tweet.user), class: "h6 post__author-name fn" %>
+          <span class="user-<%= tweet.user.id %>">
+            <%# in user.verified, the first '' is verfied n the 2 is unverified %>
+            <%= link_to "#{ tweet.user.verified ? '' : '' }", verified_user_path(tweet.user), method: :patch, remote: :true, style: "pointer-events: none;", class: "fa fa-#{ tweet.user.verified ? 'check-circle' : '' }"  %>
+          </span>
+          <div class="post__date" >
+            <time class="published" datetime="2004-07-24T18:18"><%= tweet.created_at.strftime('%h %e at %l:%M%P') %></time>
+          </div>
+        </div>
+        <div class="more fa fa-ellipsis-h">
+          <ul class="more-dropdown">
+            <li><a href="#">Edit Post</a></li>
+            <li><a href="#">Delete Post</a></li>
+            <li><a href="#">Turn Off Notifications</a></li>
+            <li><a href="#">Select as Featured</a></li>
+          </ul>
+        </div>
+      </div> 
+      <p>
+      <%= auto_link(parse(markdown(truncate(tweet.body, :ommision => "... Read More", :length => 100))), html: { target: '_blank' }) if tweet.body? %> <%= link_to 'Read More', tweet %>
+      </p> 
+      <% if tweet.media.present? %>
+      <div class="post-thumb">
+        <%= image_tag tweet.media.url(:medium) %>
+      </div>
+      <% end %>
+    <% if user_signed_in? %>
+        <div class="post-additional-info inline-items">
+          <%= render 'partials/likes', tweet: tweet %>
+          <div class="names-people-likes" >
+            <!--<a href="#">Jenny</a>,
+            <a href="#"> Robert</a> and<br>
+             liked this-->
+          </div> 
+          <div class="comments-shared">
+            <%= render 'partials/retweet', tweet: tweet %>
+            <%= render 'partials/comments', tweet: tweet %>
+            <%= link_to '', tweet_path(tweet), class: "fa fa-trash-o", method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
+          </div>
+        </div> 
+        <!-- <div class="control-block-button post-control-button">
+          <!-- <div class='btn btn-control '>
+            <%#= link_to '', tweet_path(tweet), class: "fa fa-trash-o", method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
+            <%#= render 'partials/heart', tweet: tweet %>
+          </div> -->
+          <!-- <div class="btn btn-control" >
+            <%#= render 'partials/retweet', tweet: tweet %>
+          </div> --
+        </div> --> 
+       
+    </article>
+    <ul class="comments-list" id="comments_<%= tweet.id %>" >
+      <% if tweet.comments %>
+          <%= render tweet.comments, tweet: tweet %>
+          <!-- <a class="more-comments" href="<%= tweet %>">
+            View More Comments <span>+</span>
+          </a> -->
+      <% end %>
+      <%= form_for([tweet, tweet.comments.build], class: "comment-form inline-items", remote: true, html: { multipart: true }) do |f| %>
+        <div class="post__author author vcard inline-items">
+          <%#= image_tag 'avatar.jpg' %>
+          <%= image_tag tweet.user.avatar(:medium) %>
+            <div class="form-group with-icon-right is-empty">
+              <%= f.text_field :content, placeholder: '', class: "form-control", id: "comment_content_#{tweet.id}" %>
+              <div class="add-options-message">
+                <%#= f.file_field :media, class: "comment-upload options-message fa fa-camera", id: "comment_content_#{tweet.id}", style: "display: inline !important; float: right; position: absolute; top: -3.35rem; right: -1rem; border:none;" %>
+                <!-- <input style="display: inline !important; float: right; position: absolute; top: -3.35rem; right: -1rem; border:none;" type="file" name="" class="comment-upload options-message fa fa-camera"> -->
+                <!-- <a class="options-message fa fa-camera" href="#"></a> -->
+                <div class="image-upload bt bt-default">
+                  <label for="file-input">
+                    <span class="glyphicon glyphicon-camera post-img"  ></span>
+                  </label>
+                  <%= file_field "comment[media]", id:"file-input" %>
+                </div>
+                <span class="material-input"></span>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    </ul>
+    <% end%> <!-- end of asking if the user is signed in to see all these -->
+  </div>
+</div>
+
+
+
+
+<!-- <div class="name">
+  <div class="user-name">
+    <%#= image_tag tweet.user.avatar(:medium)|| 'avatar.jpg', class: "avatar-xs" , style: "width: 30px; height: 30px; border-radius: 50%;"%> 
+    <%#= tweet.user.username %> <br> <%#= link_to tweet.user.username, user_path(tweet.user.username.downcase) %>
+  </div>
+</div>
+<%# if tweet.media.present? %> 
+  <div class="image center-block">
+    <%#= image_tag tweet.media.url(:medium), class: "img-responsive" %><br>
+  </div>
+<%# end %>
+<p class="caption">
+  <%#= auto_link(parse(truncate(tweet.body, :ommision => "... Read More", :length => 100)), html: { target: '_blank' }) if tweet.body? %> <%#= link_to 'Read More', tweet %><br>
+</p> -->
+<%# if user_signed_in? %>
+<!--   <div class="">
+    <%#= render 'partials/retweet', tweet: tweet %>
+    <%#= render 'partials/comments', tweet: tweet %>
+    <%#= render 'partials/likes', tweet: tweet %>
+    
+    <div class="post-bottom">
+      <div class="caption">
+        <div class="comments" id="comments_<%= tweet.id %>">
+          <%# if tweet.comments %>
+            <%#= render tweet.comments, tweet: tweet %>
+          <%# end %>
+        </div>
+      </div>
+    </div>
+    <div class="comment-like-form row">
+      <div class="comment-form col-sm-11">
+        <%#= form_for([tweet, tweet.comments.build], remote: true, html: { multipart: true }) do |f| %>
+          <%#= f.text_field :content, placeholder: 'Add a comment...', class: "comment_content", id: "comment_content_#{tweet.id}" %>
+          <%#= f.file_field :media, class: "comment_content", id: "comment_content_#{tweet.id}" %>
+        <%# end %>
+      </div>
+    </div>
+  </div> 
+<%# end %> -->

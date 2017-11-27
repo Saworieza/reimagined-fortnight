@@ -1,0 +1,82 @@
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="ui-block">
+    <div class="top-header">
+      <div class="top-header-thumb">
+        <%= image_tag @user.cover.url %>
+      </div>
+      <div class="profile-section">
+        <div class="row">
+          <div class="col-lg-5 col-md-5">
+            <ul class="profile-menu">
+              <li>
+                <a href="<%= user_path(@user)%>">Timeline</a>
+              </li>
+              <li>
+                <a href="<%= followers_user_path(@user) %>">Followers (<%= @user.followers.count %>)</a>
+              </li>
+              <li>
+                <a href="<%= following_user_path(@user) %>">Following (<%= @user.following.count %>)</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-5 ml-auto col-md-5 ">
+            <ul class="profile-menu">
+              <li>
+                <a href="<%= photos_user_path(@user) %>">Photos</a>
+              </li>
+              <li>
+                <a href="">Videos</a>
+              </li>
+              <% unless current_user?(@user) %>
+                <li>
+                  <div id="follow_form">
+                  <% if user_signed_in? %>
+                    <% if current_user.following?(@user) %>
+                      <%= render 'unfollow' %>
+                    <% else %>
+                      <%= render 'follow' %>
+                    <% end %>
+                  <% end %>
+                  </div>
+                  <!-- <a href="" class="fa fa-ellipsis-h"></a> -->
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="control-block-button">
+          <a href="btn btn-control bg-blue fa fa-user-plus"></a>
+          <a href="btn btn-control bg-purple fa fa-wechat"></a>
+          <div href="btn btn-control bg-primary more fa fa-user-plus">
+            <ul class="more-dropdown more-with-triangle triangle-bottom-right">
+              <li>
+                <a href="">Update Profile Photo</a>
+              </li>
+              <li>
+                <a href="">Update Cover Photo</a>
+              </li>
+              <li>
+                <a href="">Account Settings</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="top-header-author">
+        <!-- <a href="author-thumb"> -->
+          <%= link_to image_tag(@user.avatar.url), user_path(@user), class: "author-thumb" %>
+        <!-- </a> -->
+        <div class="author-content">
+          <%= link_to @user.name, user_path(@user), class: "h4 author-name" %>
+          <span class="user-<%= @user.id %>">
+            <%# in user.verified, the first '' is verfied n the 2 is unverified %>
+            <%= link_to "#{ @user.verified ? '' : '' }", verified_user_path(@user), method: :patch, remote: :true, style: "pointer-events: none; ", class: "fa fa-#{ @user.verified ? 'check-circle' : '' }"  %>
+            </span>
+          <% unless @user.location.blank? %>
+          <div class="country"><%= @user.location%></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

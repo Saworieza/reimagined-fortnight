@@ -1,0 +1,86 @@
+<div class="row">
+		<div class="ui-block">
+			<div class="row">
+				<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 padding-r-0">
+					<ul class="notification-list chat-message">
+						<%= render 'partials/subscribed_chats' %>
+					</ul>
+				</div>
+				<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12 padding-l-0">
+					<div class="chat-field">
+						<div class="ui-block-title">
+							<h6 class="title"> <%= link_to 'Back', :back %> <%= @chatroom.name %> <span>(<%= @chatroom.chatroom_users.count %> Members )</span></h6>
+							<%= link_to "Leave", chatroom_chatroom_users_path(@chatroom), method: :delete %>
+							<!-- <a class="more fa fa-ellipsis-h" href=""></a> -->
+						</div>
+						<div class="mCustomScrollbar " id="mCustomScrollbar" >
+							<% unread_messages = false %>
+								<div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>'>
+									<ul class="notification-list chat-message chat-message-field">
+								  	<% @messages.each do |message| %>
+									    <% if !unread_messages && @chatroom_user.last_read_at < message.created_at %>
+									      <% unread_messages = true %>
+									      <div class="strike"><span>Unread Messages</span></div>
+									    <% end %>
+									    <li>
+									    <%= render message %>
+									    </li>
+									   <% end %>
+									 </ul>
+								</div>
+						</div>
+						<%= form_for [@chatroom, Message.new] do |f| %>
+							<!-- <form> -->
+								<div class="form-group label-floating is-empty">
+									<!-- <label class="control-label">Write Your Reply</label> -->
+									<!-- <textarea class="form-control" placeholder=""></textarea> -->
+									<%= f.text_area :body, rows: 1, class: "form-control", placeholder: "Write Your Reply", autofocus: true %>
+								</div>
+							<!-- </form> -->
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- </div> -->
+	<script type="text/javascript">
+		var objDiv = document.getElementById("mCustomScrollbar");
+		objDiv.scrollTop = objDiv.scrollHeight;
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+		<h1><%#= @chatroom.name %> <%#= link_to "Leave", chatroom_chatroom_users_path(@chatroom), method: :delete %></h1>
+		<%#= link_to 'Back', :back %>
+
+			<%# unread_messages = false %>
+			<div data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>'>
+			  <%# @messages.each do |message| %>
+			    <%# if !unread_messages && @chatroom_user.last_read_at < message.created_at %>
+			      <%# unread_messages = true %>
+			      <div class="strike"><span>Unread Messages</span></div>
+			    <%# end %>
+
+			    <%#= render message %>
+			  <%# end %>
+			</div>
+
+		<%#= form_for [@chatroom, Message.new] do |f| %>
+		  <%#= f.text_area :body, rows: 1, class: "form-control", autofocus: true %>
+		<%# end %>
+	</div>
+</div>
+ -->

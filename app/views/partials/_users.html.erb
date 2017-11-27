@@ -1,0 +1,77 @@
+<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+  <%= render 'partials/login_btn' %>
+  <%= render 'partials/hashtags' %>
+</div>
+  
+<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+	<div class="ui-block">
+    <div class="ui-block-title">
+      <p> Follow more people from the suggestions below, tailored just for you. </p>
+    </div>
+  </div>
+    <div class="ui-block responsive-flex">
+      <div class="ui-block-title">
+        <div class="h6 title">Search For Friends</div>
+        <%= render 'partials/search2' %>
+      </div>
+    </div>
+  <div class="ui-block responsive-flex">
+    <div class="ui-block-title">
+      <ul class="widget w-friend-pages-added notification-list friend-requests" >
+        <% @users.each do |user| %>
+        <li class="inline-items">
+          <div class="author-thumb">
+            <%= link_to image_tag('avatar.jpg'), user_path(user) %>
+          </div>
+          <div class="notification-event">
+            <%= link_to user.name, user_path(user), class: "h6 notification-friend" %>
+            <br>
+            <span class="chat-message-item">@<%= user.username %></span>
+          </div>
+          
+
+          <%# EXPERIMENT AREA %>
+          <%# unless current_user == user %>
+           <%#= render partial: 'follow_form', locals: { user: user } %>
+          <%# end %>
+          <%# EXPERIMENT AREA #>
+
+
+          <% if user_signed_in? %>
+          <span class="notification-icon">
+            <a class="accept-request fa fa-user-plus" href="<%= user_path(user)%>">
+              <span class=" without-text fa-user-class"></span>
+            </a>
+          </span>
+          <span class="user-<%= user.id %>">
+            <%# in user.verified, the first '' is verfied n the 2 is unverified %>
+            <%= link_to "#{ user.verified ? '' : '' }", verified_user_path(user), method: :patch, remote: :true, style: "pointer-events: none;", class: "fa fa-#{ user.verified ? 'check-circle' : '' }"  %>
+          </span>
+        </li>
+        <% end %>
+      </ul> 
+    </div>
+  </div>
+   <div class="ui-block">
+    <div class="ui-block-title">
+      <% if @users.blank? %>
+        <h6 class="title">There are no Users with the name <%= params[:search] %>.</h6>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+  <%= render 'partials/suggestions' %>
+</div>
+
+
+
+
+
+
+
+
+
+
+

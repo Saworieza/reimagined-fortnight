@@ -1,0 +1,7 @@
+<%= form_tag(users_path, :method => "get", id: "search-form", class: "w-search navbar-form navbar-left") do %>
+  <div class="form-group with-button is-empty">
+    <%= text_field_tag :search, params[:search], placeholder: "Search For Friends", class: "form-control" %>
+    <button class="glyphicon glyphicon-search"></button>
+    <span class=""></span>
+  </div>
+<% end %>

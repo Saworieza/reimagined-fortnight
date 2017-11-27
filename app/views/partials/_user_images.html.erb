@@ -1,0 +1,19 @@
+<div class="ui-block">
+	<div class="ui-block-title">
+		<h6 class="title"> Photos</h6>
+	</div>
+	<div class="ui-block-content">
+		<ul class="widget w-last-photo js-zoom-gallery">
+		<% @tweets.limit(12).each do |tweet| %>
+			<% if tweet.media.present? %>
+			<li>
+				<%= link_to image_tag(tweet.media.url(:medium)), tweet %>
+			</li>
+			<% end %>
+		<% end %>
+		</ul>
+	</div>
+</div>
+
+
+

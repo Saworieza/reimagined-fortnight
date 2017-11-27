@@ -1,0 +1,13 @@
+<% unless user_signed_in? %>
+	<div class="ui-block">
+		<ul class="widget w-personal-info item-block" >
+			<div class="widget w-socials">
+				<h6 class="title text-center">New To Matatu Galore</h6>
+				<p class="text-center">Sign up now to get your own personalized timeline! </p>
+				<a class="social-item bg-twitter" href="<%= new_user_registration_path %>">
+					Sign Up
+				</a>
+			</div>
+		</ul>
+	</div>
+<% end %>

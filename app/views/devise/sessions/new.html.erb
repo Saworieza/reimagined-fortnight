@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 landing-page">
+    <div class="landing-text">
+      <h1>  
+        join the 
+        biggest matatu
+        community in
+        town
+      </h1>  
+    </div>
+  </div>
+  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 col-sm-offset-6">
+    <div class="registration-login-form">
+      <div class="ui-block-title">
+        <h6 class="title"> Sign In</h6>
+        <a class="more title" href="<%= new_user_registration_path %>">Register</a>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="form-group label-floating is-empty">
+              <%= f.text_field :login, placeholder: "Username or Email", class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="form-group label-floating is-empty">
+              <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control' %>
+            </div>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12">
+            <%= f.submit "Sign In", class: "btn btn-purple btn-lg full-width" %>
+          </div>
+        </div>
+      <% end %>
+      <div class="remember text-center">
+        <div class="checkbox">
+          <label>
+            <%= render "devise/shared/links" %>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,5 @@
+<% if activity.trackable %>
+	Followed <%= link_to activity.trackable.followed.name, activity.trackable.followed %><%#= link_to activity.trackable, activity.trackable %>
+<% else %>
+	Unfollowed a User
+<% end %>

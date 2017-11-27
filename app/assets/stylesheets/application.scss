@@ -1,0 +1,143 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "jquery.atwho"; 
+
+body {
+  font-family: 'Lato';
+  padding-top: 65px;
+  background-color: #edf2f6;
+}
+.glyphicon-heart{
+  color: red;
+}
+body {
+  font-family: 'Lato';
+  padding-top: 65px;
+}
+
+.glyphicon-update {
+  @extend .glyphicon-edit;
+}
+
+.glyphicon-create {
+  @extend .glyphicon-plus;
+}
+
+.glyphicon-destroy {
+  @extend .glyphicon-remove;
+}
+
+ul {
+  padding-left: 0px;
+  list-style: none;
+}
+.landing-page {
+  width: 50vw;
+  height: 91vh;
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  left: 0rem;
+  /*background-image: asset-data-url("gari.jpg") no-repeat center center fixed; */
+  background-image: url(image_path('gari.jpg'));
+  /*background: url(images/bg.jpg) no-repeat center center fixed; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  .landing-text h1{
+    position: relative;
+    top: 20rem;
+    color: #ffffff !important;
+    font-family: Helvetica,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+    line-height: 60px;
+    margin-left: 10%;
+    width: 420px;
+    text-shadow: 0 0 14px rgba(0,0,0,0.2);
+    word-wrap: break-word;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  }
+}
+
+/*Things to do with chatting*/
+.strike {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.strike > span {
+  position: relative;
+  display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 9999px;
+  height: 1px;
+  background: red;
+}
+
+.strike > span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.strike > span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+.ibadge{
+  margin-right: -2.4rem;
+}
+.badge{
+  position: relative;
+  top: -1.2rem;
+  left: -1rem;
+  z-index: 9;
+  padding: 3px;
+  font-weight: normal;
+  font-size: 10px;
+  background-color: #337ab7;
+}
+
+/* Mentions */
+.mention-item {
+  display: inline-block;
+  height: 2.0em;
+  font-size: 1.1em;
+  img {
+    height: 2.0em;
+    margin-left: 0.25em;
+  }
+}

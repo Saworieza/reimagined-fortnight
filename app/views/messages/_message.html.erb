@@ -1,0 +1,23 @@
+<!-- <div>
+	<strong>
+		<%#= image_tag message.user.avatar(:medium) || 'avatar.jpg', style: "width:30px; height:30px; border-radius:50%;" %>
+		<%#= message.user.username %>:
+	</strong>
+	<%#= auto_link(parse(message.body), html: { target: '_blank' }) %>
+</div> style="min-width:9%;"-->
+
+
+	<div class="author-thumb">
+		<%= image_tag message.user.avatar(:medium) %>
+	</div>
+	<div class="notification-event">
+		<div class="h6 notification-friend"><%= message.user.username %></div>
+		<span class="notification-date">
+			<time class="entry-date updated" datetime="2004-07-24T18:18"><%= message.created_at.strftime('%h %e at %l:%M%P') %></time>
+		</span>
+		<span class="chat-message-item">
+			<%= auto_link(parse(message.body), html: { target: '_blank' }) %>
+		</span>
+	</div>
+
+

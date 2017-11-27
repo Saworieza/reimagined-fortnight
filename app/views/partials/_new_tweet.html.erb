@@ -1,0 +1,19 @@
+<%= form_tag @tweet, multipart: true, method: :post, remote: true do %>
+	<div class="form-group">
+		<%= text_area_tag "tweet[body]", nil, class: "form-control new-tweet", placeholder: "Whats on Your mind ?", id: 'body', data: {behavior: 'autocomplete'} %>
+	</div>
+	<div class="form-goup">
+		<div class="image-upload bt bt-default">
+			<label for="file-input">
+				<span class="glyphicon glyphicon-camera post-img"  ></span>
+			</label>
+			<%= file_field_tag "tweet[media]", id:"file-input" %>
+		</div>
+		
+		<div class="pull-right post-btn">
+  		<%= button_tag id: "tweet", class: "btn btn-primary" do %>
+    		<%= fa_icon "paper-plane" %> Post
+  		<% end %>
+		</div>
+	</div>
+<% end %>

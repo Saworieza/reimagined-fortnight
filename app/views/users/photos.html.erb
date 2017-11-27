@@ -1,0 +1,26 @@
+<%= render 'partials/user_cover' %>
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="tab-content">
+		<div id="album-page" class="tab-pane active" role="tabpanel" >
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title"> Photos</h6>
+				</div>
+				<div class="ui-block-content">
+					<ul class="widget w-last-photo js-zoom-gallery">
+					<% @tweets.each do |tweet| %>
+						<% if tweet.media.present? %>
+						<li>
+							<%= link_to image_tag(tweet.media.url(:medium), style: "height: 290px; max-height:290px;"), tweet %>
+						</li>
+						<% end %>
+					<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

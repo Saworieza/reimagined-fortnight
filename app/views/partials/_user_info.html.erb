@@ -1,0 +1,27 @@
+<% @user ||= current_user %>
+<div class="ui-block">
+  <div class="friend-item">
+    <div class="friend-header-thumb">
+      <%= image_tag @user.cover.url(:medium) %>
+    </div>
+    <div class="friend-item-content">
+      <div class="more fa fa-ellipsis-h"></div>
+      <div class="friend-avatar">
+        <div class="author-thumb">
+          <%= image_tag @user.avatar.url %>
+        </div>
+        <div class="author-content">
+          <%= link_to @user.name, user_path(@user), class: "h5 author-name" %>
+          <span class="user-<%= @user.id %>">
+            <%# in user.verified, the first '' is verfied n the 2 is unverified %>
+              <%= link_to "#{ @user.verified ? '' : '' }", verified_user_path(@user), method: :patch, remote: :true, style: "pointer-events: none;", class: "fa fa-#{ @user.verified ? 'check-circle' : '' }"  %>
+          </span>
+          <% unless @user.location.blank?  %>
+            <div class="country"><%= @user.location %></div>
+          <% end %>
+        </div>
+      </div>
+      <%= render 'partials/stats' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="ui-block">
+	<div class="ui-block-title">
+		<h6 class="title"> Profile Intro</h6>
+	</div>
+	<div class="ui-block-content">
+		<ul class="widget w-personal-info item-block">
+			<% unless @user.about.blank? %>
+				<li>
+					<span class="title">About Me</span>
+					<span class="text"><%= auto_link(parse(@user.about), html: { target: '_blank' }) %></span>
+				</li>
+			<% end %>
+			<% unless @user.website.blank? %>
+				<li>
+					<span class="title">Website</span>
+          <span class="fa fa-link text"> <%= auto_link(parse(@user.website), html: { target: '_blank' }) %></span>
+				</li>
+      <% end %>
+			<% unless @user.location.blank? %>
+				<li>
+					<span class="title">Location</span>
+          <span class="fa fa-map-marker text"> <%= @user.location %></span>
+				</li>
+      <% end %>
+			<li>
+				<span class="title">Location</span>
+        <span class="fa fa-clock-o text"> Joined <%= @user.created_at.strftime('%B %e') %></span>
+			</li>
+		</ul>
+	</div>
+</div>
+
+

@@ -1,0 +1,17 @@
+<%= form_for(current_user.active_relationships.build, remote: true, class: "notification-icon") do |f| %>
+  <div><%= hidden_field_tag :followed_id, @user.id %></div>
+  <%= f.submit 'Follow', class: "accept-request fa fa-user-plus" do %>
+  	<span class=" without-text fa-user-class"></span>
+  <% end %>
+<% end %>
+<%# EXPERIMENT AREA %>
+<%#= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+    <div><%#= hidden_field_tag :followed_id, user.id %></div>
+    <%#= f.submit "Follow", class: "btn" %>  
+<%# end %>
+<%# EXPERIMENT AREA %>
+
+<%#= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+  <!-- <div><%#= hidden_field_tag :followed_id, @user.id %></div> -->
+  <%#= f.submit "Follow", class: "btn btn-primary" %>
+<%# end %>

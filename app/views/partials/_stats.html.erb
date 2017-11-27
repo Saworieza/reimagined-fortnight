@@ -1,0 +1,53 @@
+<% @user ||= current_user %>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+  <ol class="carousel-indicators ">
+    <li data-target="#myCarousel %>" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+  </ol> 
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="swiper-slide swiper-slide-active" style="width: 196px;">
+        <div class="friend count stats">
+          <a class="friend-count-item" href="<%= following_user_path(@user) %>">
+            <strong id="tweets" class="h6 stat">
+              <%= @user.tweets.count %>
+            </strong>
+            <div class="title">Posts</div>
+          </a>
+          <a class="friend-count-item" href="<%= following_user_path(@user) %>">
+            <strong id="following" class="h6 stat">
+              <%= @user.following.count %>
+            </strong>
+            <div class="title">following</div>
+          </a>
+          <a class="friend-count-item" href="<%= followers_user_path(@user) %>">
+            <strong id="followers" class="h6 stat">
+              <%= @user.followers.count %>
+            </strong>
+            <div class="title">followers</div>
+          </a>
+        </div>
+        <div class="friend-since">
+          <div class="h6">Joined</div>
+          <span><%= @user.created_at.strftime('%b %Y') %></span>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next" style="width: 196px;">
+        <p class="friend-about">
+          <%= auto_link(parse(truncate(@user.about, :ommision => "... Read More", :length => 100)), html: { target: '_blank' }) if @user.about? %>
+        </p>
+      </div> 
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+<div class="newsfeed-items-grid">
+  <div class="ui-block">
+  	<article class="hentry post video">
+	  	<div class="post__author author vcard inline-items">
+	      <div class="author-date">
+	        <%= link_to tweet.user.name, user_path(tweet.user), class: "h6 post__author-name fn" %>
+	        <span class="user-<%= tweet.user.id %>">
+            <%# in user.verified, the first '' is verfied n the 2 is unverified %>
+            <%= link_to "#{ tweet.user.verified ? '' : '' }", verified_user_path(tweet.user), method: :patch, remote: :true, style: "pointer-events: none;", class: "fa fa-#{ tweet.user.verified ? 'check-circle' : '' }"  %>
+          	</span> Shared 
+	      </div>
+	    </div>
+	  	<%= render partial: "tweets/tweet", locals: {tweet: tweet.tweet} %>
+  	</article>
+  </div>
+</div>

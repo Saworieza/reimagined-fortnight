@@ -1,0 +1,46 @@
+<% if user_signed_in? %>
+<div class="ui-block">
+  <div class="ui-block-title">
+    <h6 class="title chat-title">Your Chats</h6>
+    <a class="chat-more more fa fa-plus-square-o" href="<%= new_chatroom_path %>"></a>
+  </div>
+  <ul class="widget w-friend-pages-added notification-list friend-requests" >
+   <% current_user.chatrooms.public_channels.each do |chatroom| %>
+    <li class="inline-items">
+      <div class="notification-event">
+       <%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id}, class: "h6 notification-friend" %> <span class="pull-right"> (<%= chatroom.chatroom_users.count %> Members )</span>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<!-- <div class="ui-block">
+  <div class="ui-block-title">
+    <h6 class="title chat-title">Suggested Chats</h6>
+  </div>
+  <ul class="widget w-friend-pages-added notification-list friend-requests" >
+   <%# @chatrooms.each do |chatroom| %>
+    <li class="inline-items">
+      <div class="notification-event">
+       <%#= link_to chatroom.name, chatroom, class: "h6 notification-friend" %>
+      </div>
+      <span class="notification-icon">
+        <%#= link_to "Join", chatroom_chatroom_users_path(chatroom), method: :post %>
+        </span>
+    </li>
+    <%# end %>
+  </ul>
+</div> -->
+<!-- <div>
+  AWESOME FEATURE ALERT -- IF YOU UNCOMMENT OUT THE SECTION BELOW YOU ACTIVATE DIRECT ONE ONE ONE CHAT. 
+  Though There are still some wild dragons that need slaying such as, sort by recent message and showing usernames on individual chats
+   <h5>DM Users</h5> 
+    <ul> 
+       <li><%#= render 'partials/search_chat' %></li> 
+      <%# (User.order('created_at asc') - [current_user]).each do |user| %>
+        <li><%#= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %></li>
+      <%# end %>
+    </ul> 
+</div>  -->

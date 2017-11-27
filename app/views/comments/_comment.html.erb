@@ -1,0 +1,34 @@
+<li id="comment">
+  <div class="post__author vcard inline-items">
+    <%= image_tag 'avatar.jpg' %>
+    <div class="author-date theborder" >
+      <%= link_to comment.user.username, user_path(comment.user.username), class: "h6 post__author-name fn" %>
+      <span class="user-<%= comment.user.id %>">
+        <%# in user.verified, the first '' is verfied n the 2 is unverified %>
+        <%= link_to "#{ comment.user.verified ? '' : '' }", verified_user_path(comment.user), method: :patch, remote: :true, style: "pointer-events: none;", class: "fa fa-#{ comment.user.verified ? 'check-circle' : '' }"  %>
+      </span>
+      <div class="post__date" >
+        <time class="published" datetime="2004-07-24T18:18" ><%= comment.created_at.strftime('%h %e') %></time>
+      </div>
+    </div>
+    <% if comment.user == current_user %>
+      <div class="more">
+        <%= link_to tweet_comment_path(tweet, comment), method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
+          <span class="fa fa-trash-o"></span>
+        <% end %>
+
+        <%#= link_to '', tweet_comment_path(tweet, comment), class: "fa fa-trash-o", method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
+      </div>
+    <% end %>
+    <div class="pyongyang">
+      <p><%= auto_link(parse(comment.content), html: { target: '_blank' }) %></p>
+    </div>
+  </div>
+    <% if comment.media.present? %> 
+    <div class="comment-image">
+      <div class="comment-thumb">
+        <%= image_tag comment.media.url(:medium) %>
+      </div>
+    </div>
+    <% end %>
+</li>

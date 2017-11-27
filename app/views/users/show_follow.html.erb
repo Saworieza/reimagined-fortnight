@@ -1,0 +1,16 @@
+<% provide(:title, @title) %>
+<%= render 'partials/user_cover' %>
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="ui-block responsive-flex">
+    <div class="ui-block-title">
+      <div class="h6 title"><%= @user.name.capitalize %> <%= @title%> </div>
+      <%= render 'partials/search2' %>
+    </div>
+  </div>
+</div>
+<% if @users.any? %>
+  <ul class="users follow">
+    <%= render @users %>
+  </ul>
+  <%#= will_paginate %>
+<% end %>

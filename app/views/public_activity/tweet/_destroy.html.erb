@@ -1,0 +1,5 @@
+<% if activity.trackable %>
+	<%= link_to truncate(activity.trackable.body, :ommision => "... Read More", :length => 50), activity.trackable %>
+<% else %>
+	Deleted a Post
+<% end %>

@@ -1,0 +1,16 @@
+<div class="ui-block invisibile">
+	<div class="ui-block-title">
+		<h6 class="title">Galore Trends</h6>
+	</div>
+	<ul class="widget w-friend-pages-added notification-list friend-requests" >
+		<% @hashtags.each do |hashtag| %>
+		<li class="inline-items">
+			<div class="notification-event">
+				<%= link_to hashtag.name, hashtag_path(hashtag.name), class: "h6 notification-friend trends" %>
+			</div>
+		</li>
+		<% end %>
+	</ul>
+</div>
+
+

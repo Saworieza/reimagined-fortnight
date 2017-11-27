@@ -1,0 +1,34 @@
+<div class="row">
+	<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+	    <%= render 'partials/user_info' %>
+	    <%#= render 'partials/stats' %>
+	    <div class="divider"></div>
+	    <%= render 'partials/hashtags' %>
+	</div>
+
+	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      	<div class="well">
+      		<%= render 'partials/new_tweet' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div id="feed" class="feed">
+	     		<% @feed_items.each do |tweet| %>
+	  				<%= render partial: "tweets/#{tweet.tweet_type}", locals: {tweet: tweet} %>
+					<% end %>
+				</div>
+				<div id="load-more">
+          <%= render 'partials/load_more', items: @tweets %>
+        </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+		<%= render 'partials/suggestions' %>
+	</div>
+</div>

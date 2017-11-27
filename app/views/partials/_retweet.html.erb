@@ -1,0 +1,2 @@
+<!-- <a class="post-add-icon inline-items fa fa-retweet" href="#"> <span>16</span></a> -->
+<%= link_to '', retweet_tweet_path(tweet), class: "post-add-icon inline-items glyphicon glyphicon-retweet" , method: :post if user_signed_in?  %>

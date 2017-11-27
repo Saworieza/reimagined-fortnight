@@ -1,0 +1,164 @@
+ <%# if @users.any? %>
+    <%# @users.each do |user| %>
+       <!--  <ul> -->
+<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12" style="padding: 5px;">
+  <div class="ui-block">
+    <div class="friend-item">
+      <div class="friend-header-thumb">
+        <%= image_tag user.cover.url(:medium) %>
+      </div>
+      <div class="friend-item-content">
+        <div class="more fa fa-ellipsis-h"></div>
+        <div class="friend-avatar">
+          <div class="author-thumb">
+            <%= image_tag user.avatar.url %>
+          </div>
+          <div class="author-content">
+            <%= link_to user.name, user_path(user), class: "h5 author-name" %>
+            <span class="user-<%= user.id %>">
+              <%# This is a comment. in user.verified, the first '' is verfied n the 2 is unverified %>
+              <%= link_to "#{ user.verified ? '' : '' }", verified_user_path(user), method: :patch, remote: :true, style: "pointer-events: none;", class: "fa fa-#{ user.verified ? 'check-circle' : '' }"  %>
+            </span>
+            <div class="country">
+              <% unless user.location.blank?  %>
+                <%= user.location %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+          <ol class="carousel-indicators ">
+            <li data-target="#myCarousel %>" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+          </ol> 
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="swiper-slide swiper-slide-active" style="width: 196px;">
+                <div class="friend count stats">
+                  <a class="friend-count-item" href="<%= following_user_path(user) %>">
+                    <strong id="tweets" class="h6 stat">
+                      <%= user.tweets.count %>
+                    </strong>
+                    <div class="title">Posts</div>
+                  </a>
+                  <a class="friend-count-item" href="<%= following_user_path(user) %>">
+                    <strong id="following" class="h6 stat">
+                      <%= user.following.count %>
+                    </strong>
+                    <div class="title">following</div>
+                  </a>
+                  <a class="friend-count-item" href="<%= followers_user_path(user) %>">
+                    <strong id="followers" class="h6 stat">
+                      <%= user.followers.count %>
+                    </strong>
+                    <div class="title">followers</div>
+                  </a>
+                </div>
+                <div class="friend-since">
+                  <div class="h6">Joined</div>
+                  <span><%= user.created_at.strftime('%b %Y') %></span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next" style="width: 196px;">
+                <p class="friend-about">
+                  <%= auto_link(parse(truncate(user.about, :ommision => "... Read More", :length => 80)), html: { target: '_blank' }) if user.about? %>
+                </p>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            <%#= link_to image_tag(user.avatar.url(:medium)), user, style: "width: 30px; height:30px;" %>
+            <%#= link_to user.name %>
+
+
+
+   <!--          <div class="stats">
+              <a href="<%#= following_user_path(user) %>">
+                <strong id="tweets" class="stat">
+                  <%#= user.tweets.count %>
+                </strong>
+                Posts
+              </a>
+              <a href="<%#= following_user_path(user) %>">
+                <strong id="following" class="stat">
+                  <%#= user.following.count %>
+                </strong>
+                following
+              </a>
+              <a href="<%#= followers_user_path(user) %>">
+                <strong id="followers" class="stat">
+                  <%#= user.followers.count %>
+                </strong>
+                followers
+              </a>
+            </div>
+          </li>
+</div>
+        </ul> -->
+  <%# end %>
+<%# end %>
+
+
+
+<%# @user ||= current_user %>
+<!-- <div class="ui-block">
+  <div class="friend-item">
+    <div class="friend-header-thumb">
+      <%#= image_tag user.cover.url(:medium) %>
+    </div>
+    <div class="friend-item-content">
+      <div class="more fa fa-ellipsis-h"></div>
+      <div class="friend-avatar">
+        <div class="author-thumb">
+          <%= image_tag user.avatar.url %>
+        </div>
+        <div class="author-content">
+          <%#= link_to user.name, user_path(user), class: "h5 author-name" %>
+
+          <span class="user-<%= user.id %>">
+            <%# in user.verified, the first '' is verfied n the 2 is unverified %>
+              <%#= link_to "#{ user.verified ? '' : '' }", verified_user_path(user), method: :patch, remote: :true, style: "pointer-events: none;", class: "fa fa-#{ user.verified ? 'check-circle' : '' }"  %>
+          </span>
+          <%# unless user.location.blank?  %>
+            <div class="country"><%= user.location %></div>
+          <%# end %>
+        </div>
+      </div>
+      <%#= render 'partials/stats' %>
+    </div>
+  </div>
+</div>
+
+</div> -->
+ <!--  <div class="user_avatars">
+    <div class="suggested-user content">
+      <div class="avatar-content">
+        <%#= image_tag user.avatar.url || 'avatar.jpg', class: "suggested-avatar" %>
+      </div>
+      <div class="suggestion-details">
+        <span class= "suggested-name">
+          <%#= user.name %>
+        </span>
+        <%#= link_to user_path(user.username.downcase) do %>
+          <span class= "suggested-username">@<%#= user.username %></span><br>
+        <%# end %>
+        <p><%#= user.about %><br></p>
+        <br>
+      </div>
+      <div id="follow_form">
+        <%# if current_user.following?(user) %>
+          <%#= render 'unfollow' %>
+        <%# else %>
+          <%#= render 'follow' %>
+        <%# end %>
+      </div>
+    </div>
+  </div> -->

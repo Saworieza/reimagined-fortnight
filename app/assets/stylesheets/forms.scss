@@ -1,0 +1,38 @@
+#login-form {
+	margin-top: 100px;
+}
+
+#register-form {
+	margin-top: 70px;
+}
+
+#forgot-password-form, #change-password-form, 
+#resend-confirmation-form {
+	margin-top: 80px;
+}
+
+.form-control, .input-group-addon {
+	padding:0 15px;
+	border-radius:3rem;
+}
+.new-tweet{
+	border-radius: 2px !important;
+}
+
+/*file upload*/
+.image-upload{
+  border-radius: 50%;
+  width: 35px;
+	padding-left: 9px;
+}
+.image-upload > input
+{
+  display: none;
+}
+.image-upload > label{
+	margin-bottom: 0px;
+}
+.attach-doc
+{
+  cursor: pointer;
+}

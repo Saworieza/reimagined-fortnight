@@ -1,0 +1,7 @@
+console.log(<%= @user.verified %>);
+<% if @user.verified == true %>
+    $(".user-<%= @user.id %> > a").html('Verified').removeClass('btn-warning').addClass('btn-success')
+<% else %>
+    $(".user-<%= @user.id %> > a").html('Unverified').removeClass('fa-check-circle').addClass('btn-warning')
+<% end %>
+$("#user-status-<%= @user.id %>").html("<%= @user.verified %>")
