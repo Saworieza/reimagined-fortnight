@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.0'
-# gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -15,19 +15,18 @@ group :development, :test do
 end
 
 gem 'figaro'
-gem 'puma'
 
 gem 'sqlite3'
 gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
 
 group :development do
   # gem 'unicorn'
-  # gem 'capistrano'
-  # gem 'capistrano-rails'
+  gem 'capistrano'
+  gem 'capistrano-rails'
   # gem 'capistrano-rbenv'
-  # gem 'capistrano-bundler'
+  gem 'capistrano-bundler'
   # # gem 'capistrano3-unicorn'
-  # gem 'capistrano-rvm'
+  gem 'capistrano-rvm'
   gem 'web-console'
 end
 
@@ -43,7 +42,7 @@ gem 'rails_autolink'
 gem 'acts_as_votable'
 gem 'friendly_id'
 gem 'public_activity'
-gem 'twitter-typeahead-rails' #go figure
+gem 'twitter-typeahead-rails' #go   figure
 gem "paperclip"
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
