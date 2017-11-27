@@ -2,7 +2,7 @@
 lock "~> 3.10.0"
 
 set :application, "reimagined-fortnight"
-set :repo_url, "git@github.com:Saworieza/reimagined-fortnight.git"
+set :repo_url, "git@github.com:iamcaleberic/reimagined-fortnight.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -19,12 +19,6 @@ set :deploy_to, "/home/app/reimagined-fortnight"
 
 # Default value for :pty is false
 # set :pty, true
-set :ssh_options, {
-  keys: %w(~/.ssh/production.pem),
-  forward_agent: false
- #  auth_methods: %w(password)
-}
-
 # Default value for :linked_files is []
 append :linked_files, "config/database.yml", "config/secrets.yml, config/application.yml"
 
