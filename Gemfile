@@ -17,17 +17,17 @@ end
 gem 'figaro'
 gem 'puma'
 
+gem 'sqlite3'
 gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
 
 group :development do
   # gem 'unicorn'
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  # gem 'capistrano3-unicorn'
-  gem 'capistrano-rvm'
-  gem 'sqlite3'
+  # gem 'capistrano'
+  # gem 'capistrano-rails'
+  # gem 'capistrano-rbenv'
+  # gem 'capistrano-bundler'
+  # # gem 'capistrano3-unicorn'
+  # gem 'capistrano-rvm'
   gem 'web-console'
 end
 
