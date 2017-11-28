@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_attached_file :avatar, :storage => :cloudinary, styles: { medium: '152x152#'}, default_url: "avatar.jpg"
+  has_attached_file :avatar, styles: { medium: '152x152#'}, default_url: "avatar.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_attached_file :cover, styles: { large: '700x', medium: '152x152#'}, default_url: "gari.jpg"
