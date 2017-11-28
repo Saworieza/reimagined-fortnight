@@ -18,6 +18,7 @@ gem 'figaro'
 
 gem 'sqlite3'
 # gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
+gem 'paperclip-cloudinary'
 
 group :development do
   # gem 'unicorn'

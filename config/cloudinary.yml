@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: ojey
+  api_key: '863222371345826'
+  api_secret: Wbg5Ke34bVQR8kpBNBrcRFUmc04
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: ojey
+  api_key: '863222371345826'
+  api_secret: Wbg5Ke34bVQR8kpBNBrcRFUmc04
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: ojey
+  api_key: '863222371345826'
+  api_secret: Wbg5Ke34bVQR8kpBNBrcRFUmc04
+  enhance_image_tag: true
+  static_image_support: false

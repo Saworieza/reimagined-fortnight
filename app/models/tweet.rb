@@ -1,5 +1,5 @@
 class Tweet < ApplicationRecord
-  has_attached_file :media, styles: { medium: "640x", thumb: "100x100>" }, default_url: "last-phot12-large.jpg"
+  has_attached_file :media, :storage => :cloudinary, styles: { medium: "640x", thumb: "100x100>" }, default_url: "last-phot12-large.jpg"
   validates_attachment_content_type :media, content_type: /\Aimage\/.*\z/
 
   after_create :add_mentions
