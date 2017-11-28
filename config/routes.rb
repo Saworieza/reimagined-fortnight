@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
   get 'errors/error_404'
 
   root to: "home#index"
