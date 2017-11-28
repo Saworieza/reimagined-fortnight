@@ -38,8 +38,9 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://matweet.herokuapp.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://matweet.herokuapp.com', /http:\/\/matweet.*/ ]
-  config.web_socket_server_url = "wss://18.216.21.154/cable"
-  config.action_cable.allowed_request_origins = ['http://18.216.21.154', 'http://18.216.21.154'] 
+  # config.web_socket_server_url = "wss://18.216.21.154/cable"
+  # config.action_cable.allowed_request_origins = ['http://18.216.21.154', 'http://18.216.21.154'] 
+  config.action_cable.allowed_request_origins = ["http://18.216.21.154"]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
