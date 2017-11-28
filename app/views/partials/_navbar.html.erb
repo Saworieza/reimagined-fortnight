@@ -8,10 +8,10 @@
         <span class="icon-bar"></span>
       </button>
       <nav class="main-nav">
-        <%#= link_to root_url, class: "" do %>
-          <%= link_to image_tag('logo.png', class: "logo"), root_url %>
-          <%# <i class="fa fa-home"></i> MatatuGalore  %>
-        <%# end %>
+        <%= link_to root_url, class: "" do %>
+          <%#= link_to image_tag('logo.png', class: "logo"), root_url %>
+           <i class="fa fa-home"></i> MatatuGalore  
+        <% end %>
         <% if user_signed_in? %>
           <%= link_to notifications_path, class: "dropdown-toggle", data_toggle: "dropdown", role: "button", aria_expanded: "false" do %>
             <i class="fa fa-bell-o ibadge"> 
