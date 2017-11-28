@@ -90,10 +90,14 @@ Rails.application.configure do
     storage: :s3,
     :preserve_files => true,
     s3_credentials: {
-      bucket: ENV.fetch('matatugalore'),
-      access_key_id: ENV.fetch('AKIAIL6A3U5P6KVS7BYA'),
-      secret_access_key: ENV.fetch('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'),
-      s3_region: ENV.fetch('us-east-2'),
+      bucket: 'matatugalore',
+      access_key_id: 'AKIAIL6A3U5P6KVS7BYA',
+      secret_access_key: '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',
+      s3_region: 'us-east-2',
+      # bucket: ENV.fetch('matatugalore'),
+      # access_key_id: ENV.fetch('AKIAIL6A3U5P6KVS7BYA'),
+      # secret_access_key: ENV.fetch('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'),
+      # s3_region: ENV.fetch('us-east-2'),
     }
   }
 
