@@ -85,4 +85,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  config.paperclip_defaults = {
+    storage: :s3,
+    :preserve_files => true,
+    s3_credentials: {
+      bucket: ENV.fetch('matatugalore'),
+      access_key_id: ENV.fetch('AKIAIL6A3U5P6KVS7BYA'),
+      secret_access_key: ENV.fetch('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'),
+      s3_region: ENV.fetch('us-east-2'),
+    }
+  }
+
+  # Paperclip config:
+  Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
+  Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
+
 end
