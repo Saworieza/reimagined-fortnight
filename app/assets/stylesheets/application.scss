@@ -45,6 +45,14 @@ body {
   @extend .glyphicon-remove;
 }
 
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.alert-notice {
+  @extend .alert-info;
+}
+
 ul {
   padding-left: 0px;
   list-style: none;

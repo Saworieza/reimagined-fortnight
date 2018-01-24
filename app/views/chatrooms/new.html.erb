@@ -1,5 +1,33 @@
-<h1>New Chatroom</h1>
+<div class="row">
+  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+    <%#= link_to 'New Chatroom', new_chatroom_path %>
+    <!-- <div class="ui-block">
+      <div class="ui-block-title">
+        <h6 class="title chat-title">Suggested Chats</h6>
+        <a class="chat-more more fa fa-plus-square-o" href="<%= new_chatroom_path %>"></a>
+      </div>
+      <ul class="widget w-friend-pages-added notification-list friend-requests" >
+       <%# @chatrooms.each do |chatroom| %>
+        <li class="inline-items">
+          <div class="notification-event">
+           <%#= link_to chatroom.name, chatroom, class: "h6 notification-friend", style: "pointer-events: none;" %> 
+          </div>
+          <%# if user_signed_in? %>
+          <span class="notification-icon">
+            <%#= link_to "Join", chatroom_chatroom_users_path(chatroom), method: :post %>
+          </span>
+          <%# end %>
+        </li>
+        <%# end %>
+      </ul>
+    </div> -->
+  </div>
 
-<%= render 'form', chatroom: @chatroom %>
-
-<%= link_to 'Back', chatrooms_path %>
+  <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+	<div class="ui-block-title">
+	  <h6 class="title chat-title">New Chatrrom</h6>
+	  <a class="chat-more more fa fa-arrow-circle-left" href="<%= chatrooms_path %>"></a>
+	</div>
+	<%= render 'form', chatroom: @chatroom %>
+	<%= link_to 'Back', chatrooms_path %>
+  </div>

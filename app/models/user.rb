@@ -26,6 +26,12 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  after_create :welcome_email
+  def welcome_email
+    ApplicationMailer.welcome_email(self).deliver
+    # redirect_to root_path, alert: "Welcome to the Largest Matatu Social SIte"
+  end
+
   def self.search(search)
     where("name LIKE ? OR username LIKE ?", "%#{search}%", "%#{search}%") 
   end

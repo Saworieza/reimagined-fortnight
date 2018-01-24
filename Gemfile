@@ -19,6 +19,7 @@ gem 'figaro'
 gem 'sqlite3'
 # gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
 
+gem 'delayed_job_active_record'
 
 group :development do
   # gem 'unicorn'
@@ -30,6 +31,10 @@ group :development do
   gem 'capistrano-rvm'
   gem 'web-console'
 end
+
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', github: 'sferik/rails_admin'
+gem 'rails_admin_rollincode', '~> 1.0'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -50,9 +55,10 @@ gem 'bootstrap-will_paginate'
 gem 'unread'
 gem 'jquery-atwho-rails'
 gem 'redcarpet'
-gem 'aws-sdk', '~> 2.3'
-# gem 'cloudinary'
-# gem 'paperclip-cloudinary'
+# gem 'aws-sdk', '~> 2.3'
+
+gem 'cloudinary'
+gem 'paperclip-cloudinary'
 
 group :production do
   gem 'pg'

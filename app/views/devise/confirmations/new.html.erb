@@ -10,8 +10,11 @@
         <%= f.text_field :username, autofocus: true, placeholder: 'Username', class: 'form-control' %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Resend confirmation instructions", class: 'btn btn-primary btn-lg btn-block' %>
+      <!-- <div class="actions">
+        <%#= f.submit "Resend confirmation instructions", class: 'btn btn-primary btn-lg btn-block' %>
+      </div> -->
+      <div class="col-xl-12 col-lg-12 col-md-12">
+        <%= f.submit "Resend confirmation instructions", class: "btn btn-purple btn-lg full-width" %>
       </div>
     <% end %>
 

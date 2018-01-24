@@ -90,9 +90,9 @@ ActiveRecord::Schema.define(version: 20171123153954) do
   end
 
   create_table "read_marks", force: :cascade do |t|
-    t.string   "readable_type", null: false
+    t.string   "readable_type"
     t.integer  "readable_id"
-    t.string   "reader_type",   null: false
+    t.string   "reader_type"
     t.integer  "reader_id"
     t.datetime "timestamp"
     t.index ["readable_type", "readable_id"], name: "index_read_marks_on_readable_type_and_readable_id"
